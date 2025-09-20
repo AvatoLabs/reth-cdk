@@ -1,0 +1,41 @@
+[package]
+name = "cdk-engine-facade"
+version = "0.1.0"
+edition = "2021"
+description = "Minimal facade for interacting with Reth engine core"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/paradigmxyz/reth"
+homepage = "https://paradigmxyz.github.io/reth"
+
+[dependencies]
+# CDK types
+cdk-types = { path = "../cdk-types" }
+
+# Core dependencies
+alloy-primitives = { workspace = true }
+alloy-rpc-types-eth = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+
+# Async
+tokio = { workspace = true, features = ["rt", "rt-multi-thread", "sync"] }
+async-trait = "0.1.68"
+
+# Reth dependencies (minimal) - using specific crates instead of workspace
+reth-primitives = { path = "../../reth/crates/primitives", default-features = false }
+reth-provider = { path = "../../reth/crates/storage/provider", default-features = false }
+reth-db = { path = "../../reth/crates/storage/db", default-features = false }
+reth-engine-primitives = { path = "../../reth/crates/engine/primitives", default-features = false }
+reth-engine-service = { path = "../../reth/crates/engine/service", default-features = false }
+reth-network = { path = "../../reth/crates/net/network", default-features = false }
+reth-payload-primitives = { path = "../../reth/crates/payload/primitives", default-features = false }
+reth-ethereum-primitives = { path = "../../reth/crates/ethereum/primitives", default-features = false }
+reth-ethereum-engine-primitives = { path = "../../reth/crates/ethereum/engine-primitives", default-features = false }
+
+# Logging
+tracing = { workspace = true }
+
+[dev-dependencies]
+tokio-test = "0.4"
+tempfile = "3.20"

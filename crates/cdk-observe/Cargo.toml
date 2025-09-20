@@ -1,0 +1,49 @@
+[package]
+name = "cdk-observe"
+version = "0.1.0"
+edition = "2021"
+description = "Observability and monitoring for CDK integration"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/paradigmxyz/reth"
+homepage = "https://paradigmxyz.github.io/reth"
+
+[dependencies]
+cdk-types = { path = "../cdk-types" }
+alloy-primitives = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+thiserror = { workspace = true }
+tracing = { workspace = true, features = ["attributes"] }
+tracing-subscriber = { workspace = true, features = ["fmt", "env-filter", "registry"] }
+
+# Metrics
+metrics = { workspace = true }
+metrics-derive = { workspace = true }
+metrics-exporter-prometheus = { workspace = true, optional = true }
+
+# Performance monitoring
+prometheus = "0.13"
+
+# Caching
+moka = { version = "0.12", features = ["future"] }
+
+# Concurrency
+rayon = "1.8"
+
+# Async
+tokio = { workspace = true, features = ["rt", "rt-multi-thread", "time", "signal"] }
+async-trait = "0.1.68"
+futures = "0.3"
+
+# JSON serialization
+serde_json = { workspace = true }
+
+# Time
+chrono = { workspace = true }
+
+[dev-dependencies]
+tokio-test = "0.4"
+tempfile = { workspace = true }
+
+[features]
+default = ["prometheus"]
+prometheus = ["metrics-exporter-prometheus"]

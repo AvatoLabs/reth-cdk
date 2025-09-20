@@ -1,0 +1,39 @@
+[package]
+name = "cdk-datastream"
+version = "0.1.0"
+edition = "2021"
+description = "Data stream source for CDK batch ingestion with checkpoint support"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/paradigmxyz/reth"
+homepage = "https://paradigmxyz.github.io/reth"
+
+[dependencies]
+cdk-types = { path = "../cdk-types" }
+alloy-primitives = { workspace = true, features = ["serde"] }
+alloy-provider = { workspace = true, features = ["reqwest"] }
+alloy-rpc-client = { workspace = true }
+alloy-transport-http = { workspace = true }
+async-trait = "0.1"
+serde = { workspace = true, features = ["derive"] }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+tokio = { workspace = true, features = ["rt", "net", "time", "sync", "fs"] }
+tracing = { workspace = true }
+url = { workspace = true }
+bytes = { workspace = true }
+futures = { workspace = true }
+reqwest = { workspace = true, features = ["json"] }
+
+# WebSocket support
+tokio-tungstenite = "0.21"
+futures-util = "0.3"
+
+async-stream = "0.3"
+
+# gRPC support
+tonic = "0.12"
+prost = "0.13"
+
+[dev-dependencies]
+proptest = { workspace = true }
+tokio-test = "0.4"

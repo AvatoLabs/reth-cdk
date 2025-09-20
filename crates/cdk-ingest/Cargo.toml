@@ -1,0 +1,27 @@
+[package]
+name = "cdk-ingest"
+version = "0.1.0"
+edition = "2021"
+description = "Block assembler for CDK batch ingestion and block conversion"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/paradigmxyz/reth"
+homepage = "https://paradigmxyz.github.io/reth"
+
+[dependencies]
+cdk-types = { path = "../cdk-types" }
+cdk-datastream = { path = "../cdk-datastream" }
+alloy-primitives = { workspace = true, features = ["serde"] }
+alloy-consensus = { workspace = true }
+alloy-eips = { workspace = true }
+revm = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+thiserror = { workspace = true }
+tokio = { workspace = true, features = ["rt", "sync"] }
+tracing = { workspace = true }
+bytes = { workspace = true }
+futures = { workspace = true }
+async-trait = "0.1"
+
+[dev-dependencies]
+proptest = { workspace = true }
+tokio-test = "0.4"

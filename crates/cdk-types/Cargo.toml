@@ -1,0 +1,16 @@
+[package]
+name = "cdk-types"
+version = "0.1.0"
+edition = "2021"
+description = "Core types for CDK (Celestia Data Availability) integration with Reth"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/paradigmxyz/reth"
+homepage = "https://paradigmxyz.github.io/reth"
+
+[dependencies]
+alloy-primitives = { workspace = true, features = ["serde"] }
+serde = { workspace = true, features = ["derive"] }
+thiserror = { workspace = true }
+
+[dev-dependencies]
+proptest = { workspace = true }

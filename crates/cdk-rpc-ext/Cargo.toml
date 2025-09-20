@@ -1,0 +1,29 @@
+[package]
+name = "cdk-rpc-ext"
+version = "0.1.0"
+edition = "2021"
+description = "Extended RPC API for CDK batch/epoch queries and metrics"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/paradigmxyz/reth"
+homepage = "https://paradigmxyz.github.io/reth"
+
+[dependencies]
+cdk-types = { path = "../cdk-types" }
+cdk-datastream = { path = "../cdk-datastream" }
+cdk-ingest = { path = "../cdk-ingest" }
+cdk-finality = { path = "../cdk-finality" }
+alloy-provider = { workspace = true, features = ["reqwest"] }
+alloy-rpc-client = { workspace = true }
+alloy-transport-http = { workspace = true }
+alloy-network = { workspace = true }
+alloy-primitives = { workspace = true, features = ["serde"] }
+serde = { workspace = true, features = ["derive"] }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+tokio = { workspace = true, features = ["rt", "sync"] }
+tracing = { workspace = true }
+async-trait = "0.1"
+
+[dev-dependencies]
+proptest = { workspace = true }
+tokio-test = "0.4"
