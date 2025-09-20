@@ -1,6 +1,6 @@
 # Reth CDK Adaptation Layer
 
-A Celestia Data Availability (CDK) integration layer built on top of Reth, implementing equivalent batch/epoch data stream ingestion, L1 finality/rollback, extended RPC, and observability features based on cdk-erigon behavior.
+This project implements a Celestia Data Availability (CDK) integration layer on top of Reth, mirroring the behavior of `cdk-erigon` for equivalent batch/epoch data stream ingestion, L1 finality/rollback, extended RPC, and observability features.
 
 ## Project Structure
 
@@ -65,11 +65,7 @@ reth-cdk/
 - Data migration utilities
 - Cross-client compatibility
 
-## Building and Running
-
-### Prerequisites
-- Rust 1.88.0 or later
-- Git (for reth submodule)
+## Build and Run
 
 ### Build
 ```bash
@@ -80,19 +76,15 @@ cargo build --all-features
 ### Run Tests
 ```bash
 cargo test --workspace
-cargo clippy -- -D warnings
 ```
 
 ### CLI Tools
 ```bash
-# Data ingestion
+# Data Ingestion
 cargo run -p cdk-binaries -- ingest --datastream <URL>
 
-# Finality monitoring
+# Finality Monitoring
 cargo run -p cdk-binaries -- finality --l1-rpc <ETH_RPC> --bridge <ADDR>
-
-# Node operation
-cargo run -p cdk-binaries -- node --config <CONFIG>
 ```
 
 ## Design Principles
@@ -116,38 +108,15 @@ The CDK adaptation layer follows a modular architecture:
 
 ## Status
 
-✅ All core crates implemented  
-✅ Build and tests passing  
-✅ CLI tools available  
-✅ Documentation and examples complete  
-✅ Production-ready code quality  
-✅ Comprehensive error handling  
-✅ Performance optimizations  
+✅ All core crates implemented
+✅ Build and tests passing
+✅ CLI tools available
+✅ Documentation and examples complete
 
 ## Next Steps
 
-- [ ] Integrate actual Reth engine interfaces
-- [ ] Implement complete L1 contract interactions
-- [ ] Add more data source support (IPFS, Arweave)
+- [ ] Integrate with actual Reth engine interfaces
+- [ ] Implement full L1 contract interaction
+- [ ] Add more data source support
 - [ ] Performance optimization and monitoring
-- [ ] Production deployment guides
-- [ ] Docker/Kubernetes deployment configurations
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests and documentation
-5. Run `cargo test` and `cargo clippy`
-6. Submit a pull request
-
-## License
-
-This project is licensed under both Apache-2.0 and MIT licenses.
-
-## Acknowledgments
-
-- [Reth](https://github.com/paradigmxyz/reth) - The underlying Ethereum client
-- [Alloy](https://github.com/alloy-rs/alloy) - Ethereum primitives and tooling
-- [cdk-erigon](https://github.com/celestiaorg/cdk-erigon) - Reference implementation
+- [ ] Production deployment guide
